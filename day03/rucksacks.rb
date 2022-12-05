@@ -9,14 +9,11 @@
 
 sum = 0
 File.readlines("input.txt", chomp: true).each do |sack|
-  # p sack
 
   # find out the length of items' list (should return even) to split it in half
-
   first, second = sack.chars.each_slice(sack.length / 2).map(&:join)
 
   # use char codes to determine out items priorities (subtracting as needed)
-
   (first.chars() & second.chars()).each do |doubled|
     if doubled.upcase == doubled
       sum += (doubled.ord - 38)
